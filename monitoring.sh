@@ -3,7 +3,6 @@ ARCH=$(uname -a)
 PCPU=$(grep "physical id" /proc/cpuinfo | wc -l)
 #wc -l : prints the number of lines in a file.
 VCPU=$(grep  processor /proc/cpuinfo | wc -l)
-
 RAM_TOTA=$(free -h | grep Mem | awk '{print $2}')
 RAM_USED=$(free -h | grep Mem | awk '{print $3}')
 RAM_PERC=$(free -h | grep Mem | awk '{printf("%.2f",$3 / $2 * 100)}')
@@ -31,7 +30,7 @@ wall "
 	Architecture	: $ARCH
 	Physical CPUs	: $PCPU
 	Virtual CPUs	: $VCPU
-	Memory Usage	: $RAM_USED/$RAM_TOTA	 ($RAM_PERC%)
+	Memory Usage	: $RAM_USED/$RAM_TOTA  ($RAM_PERC%)
 	Disk Usage      : $DISK_USAGE
 	Cpu load	: $CPU_LOAD
 	Last boot	: $LAST_BOOT
